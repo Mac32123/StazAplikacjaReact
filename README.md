@@ -3,12 +3,14 @@
 1.	Aplikacja
 
 Całość aplikacji została utworzona w programie Visual Studio 2022 na bazie szablonu „React and ASP.net Core”. Jak wskazuje nazwa szablonu backend został napisany przy użyciu ASP.net Core, a frontend w Reakcie (z językiem TypeScript). Do projektu dołączona jest baza danych SQLServer. 
+
 2.	Backend
 
 2.1.	Biblioteki
 Do komunikacji z bazą danych wykorzystano EntityFrameworkCore
 2.2 Klasy
 Klasa AppDbContext dziedziczy po IdentityDbContext i odpowiada za inicjalizację bazy danych. Zawiera metodę OnModelCreating, w której zawarte są wszystkie akcje, które powinny zostać wykonane wraz z utworzeniem modelu, czyli przede wszystkim inicjalizacja potrzebnych od początku tabel w bazie danych. Pusta klasa ApplicationUser jest używana jako klasa odpowiadająca za użytkownika w bazie danych (odpowiednie pola i tabele są generowane automatycznie). Klasa Contact odpowiada za tabelę kontaktów w bazie danych, klasa Category za tabelę zawierającą kategorie kontaktu (odgórnie ustalone), klasa SluzbowySubCategory odpowiada za tabelę zawierającą podkategorię dla kategorii „Służbowy” (odgórnie ustalone). Kontroler CategoryController odpowiada za API dotyczące kontaktów. Metoda GetCategories() odpowiada za przekazanie klientowi wszystkich kategorii zapisanych w bazie, a metoda GetCategory(id) odsyła jedynie kategorię z zadanym id, lub błąd 404 w przypadku braku kategorii z zadanym id. Kontroler SluzbowySubCategoryController jest analogiczny do poprzedniego,  z tą różnicą, że odpowiada za podkategorie dla kategorii Służbowy. Kontroler ContactsController odpowiada za działania związane z kontaktami. Metoda Contacts() wysyła klientowi zbiór wszystkich kontaktów zapisanych w bazie danych, GetContact(id) odsyła tylko kontakt z zadanym id (lub error 404), CreateContact(contact) odpowiada za dodanie kontaktu do bazy danych, UpdateContact(id, contact) odpowiada za aktualizację kontaktu w bazie danych, a DeleteContact(id) za jego usunięcie.
+
 3.	Frontend
 
 3.1.	Biblioteki
