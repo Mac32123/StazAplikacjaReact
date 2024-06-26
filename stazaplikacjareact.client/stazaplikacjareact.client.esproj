@@ -8,4 +8,16 @@
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Nowy folder\**" />
+    <None Remove="src\Nowy folder1\**" />
+    <TypeScriptConfiguration Remove="Nowy folder\**" />
+    <TypeScriptConfiguration Remove="src\Nowy folder1\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\types\sluzbowySubCategory.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\types\" />
+  </ItemGroup>
 </Project>
